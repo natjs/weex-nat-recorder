@@ -2,13 +2,13 @@
 
 <plugin xmlns="http://www.w3.org/ns/widgets"
     id="nat-recorder"
-    version="0.1.0">
+    version="0.1.2">
     <name>nat-recorder</name>
-    <description></description>
+    <description>Nat.js module: Recorder (record audio)</description>
     <license>MIT</license>
-    <keywords>weex,plugin,nat,natjs,recorder</keywords>
-    <repo>https://github.com/Natjs/weex-nat-recorder.git</repo>
-    <issue>https://github.com/Natjs/weex-nat-recorder/issues</issue>
+    <keywords>weex,plugin,nat,natjs,recorder,record,audio</keywords>
+    <repo>https://github.com/natjs/weex-nat-recorder.git</repo>
+    <issue>https://github.com/natjs/weex-nat-recorder/issues</issue>
     
      <!-- ios -->
      <platform name="ios">

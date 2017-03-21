@@ -1,12 +1,15 @@
 # nat-recorder
 
+- [Documentation](http://natjs.com/#/#recorder)
+- [Github](https://github.com/natjs/weex-nat-recorder)
+
 ## Installation
 ```
 weexpack plugin add nat-recorder
 ```
 
 ```
-npm install weex-nat --save
+npm install natjs --save
 ```
 
 ## Usage
@@ -15,7 +18,7 @@ Use in weex file (.we)
 
 ```html
 <script>
-import 'Nat' from 'weex-nat'
+import 'Nat' from 'natjs'
 
 Nat.recorder.start()
 
