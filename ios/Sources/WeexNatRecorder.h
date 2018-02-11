@@ -6,16 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <WeexSDK/WeexSDK.h>
-
 
 @protocol NatRecorderPro <WXModuleProtocol>
 
 - (void)start:(NSDictionary *)options :(WXModuleCallback)callback;
 - (void)pause:(WXModuleCallback)callback;
 - (void)stop:(WXModuleCallback)callback;
-
 
 @end
 
