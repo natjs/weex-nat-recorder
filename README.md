@@ -1,6 +1,6 @@
 # nat-recorder
 
-- [Documentation](http://natjs.com/#/#recorder)
+- [Documentation](http://natjs.com/#/reference/recorder)
 - [Github](https://github.com/natjs/weex-nat-recorder)
 
 ## Installation

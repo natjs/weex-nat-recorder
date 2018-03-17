@@ -1,29 +1,35 @@
-package com.nat.weex;
+package com.instapp.nat.weex.plugin.Recorder;
 
 import android.Manifest;
 import android.app.Activity;
 
-import com.nat.recorder.RecorderModule;
-import com.nat.recorder.Constant;
-import com.nat.recorder.ModuleResultListener;
-import com.nat.recorder.Util;
-import com.nat.permission.PermissionChecker;
+import com.alibaba.weex.plugin.annotation.WeexModule;
+import com.instapp.nat.recorder.RecorderModule;
+import com.instapp.nat.recorder.Constant;
+import com.instapp.nat.recorder.ModuleResultListener;
+import com.instapp.nat.recorder.Util;
+import com.instapp.nat.permission.PermissionChecker;
 
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Created by Acathur on 17/2/18. 
  * Copyright (c) 2017 Instapp. All rights reserved.
  */
 
+@WeexModule(name = "nat/recorder")
 public class Recorder extends WXModule {
 
     HashMap<String, String> mCallParams;
     JSCallback mCallCallback;
+
+    String lang = Locale.getDefault().getLanguage();
+    Boolean isChinese = lang.startsWith("zh");
 
     @JSMethod
     public void start(HashMap<String, String> params, final JSCallback jsCallback){
@@ -31,13 +37,18 @@ public class Recorder extends WXModule {
 
         if (permAllow) {
             HashMap<String, String> dialog = new HashMap<>();
-            dialog.put("title", "权限申请");
-            dialog.put("message", "请允许音频录制");
+            if (isChinese) {
+                dialog.put("title", "权限申请");
+                dialog.put("message", "请允许应用录制音频");
+            } else {
+                dialog.put("title", "Permission Request");
+                dialog.put("message", "Please allow the app to record audio");
+            }
             
             mCallParams = params;
             mCallCallback = jsCallback;
 
-            PermissionChecker.requestPermissions((Activity) mWXSDKInstance.getContext(), dialog, new com.nat.permission.ModuleResultListener() {
+            PermissionChecker.requestPermissions((Activity) mWXSDKInstance.getContext(), dialog, new com.instapp.nat.permission.ModuleResultListener() {
                 @Override
                 public void onResult(Object o) {
                     if ((boolean)o == true) jsCallback.invoke(Util.getError(Constant.RECORD_AUDIO_PERMISSION_DENIED, Constant.RECORD_AUDIO_PERMISSION_DENIED_CODE));
